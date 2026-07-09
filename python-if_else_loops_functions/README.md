@@ -1,0 +1,1 @@
+This repository includes exercises aimed at strengthening core Python programming skills, with a focus on control flow concepts such as conditionals, loops, and functions. It also features a C programming task on linked lists to support technical interview preparation.
