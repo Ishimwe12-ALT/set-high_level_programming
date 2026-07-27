@@ -1,3 +1,4 @@
 #!/usr/bin/python3
-def common_elements(set_1, set_2):
-    return set_1 & set_2
+def print_sorted_dictionary(a_dictionary):
+    for key in sorted(a_dictionary.keys()):
+        print("{}: {}".format(key, a_dictionary[key]))
