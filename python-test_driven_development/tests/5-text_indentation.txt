@@ -1,0 +1,15 @@
+=================================
+How to Use 5-text_indentation.py
+=================================
+
+This library defines ``text_indentation(text)``.
+
+Usage
+=====
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("Hello. World?")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>

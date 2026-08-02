@@ -1,0 +1,13 @@
+==================================
+How to Use 101-lazy_matrix_mul.py
+==================================
+
+This library defines ``lazy_matrix_mul(m_a, m_b)``.
+
+Usage
+=====
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    array([[ 7, 10],
+           [15, 22]])

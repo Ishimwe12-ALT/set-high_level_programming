@@ -1,0 +1,23 @@
+============================
+How to Use 3-say_my_name.py
+============================
+
+This library defines ``say_my_name(first_name, last_name="")``.
+
+Usage
+=====
+
+Printing full name:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+Invalid input:
+
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
