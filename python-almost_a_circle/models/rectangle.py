@@ -84,14 +84,36 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """Assign positional/keyword arguments to attributes."""
         attrs = ["id", "width", "height", "x", "y"]
-        if args and len(args) > 0:
+        if args and len(args) != 0:
             for i, arg in enumerate(args):
-                if i < len(attrs):
-                    setattr(self, attrs[i], arg)
-        elif kwargs:
+                if i == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif i == 1:
+                    self.width = arg
+                elif i == 2:
+                    self.height = arg
+                elif i == 3:
+                    self.x = arg
+                elif i == 4:
+                    self.y = arg
+        elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
-                if key in attrs:
-                    setattr(self, key, value)
+                if key == "id":
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
 
     def to_dictionary(self):
         """Return dictionary representation of a Rectangle."""
