@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""Defines the Rectangle class inheriting from Base."""
+"""Defines a Rectangle class that inherits from Base."""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Represent a Rectangle."""
+    """Represent a rectangle."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize Rectangle instance."""
+        """Initialize a new Rectangle."""
         self.width = width
         self.height = height
         self.x = x
@@ -16,7 +16,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Get/set width of Rectangle."""
+        """Get/set the width of the Rectangle."""
         return self.__width
 
     @width.setter
@@ -29,7 +29,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Get/set height of Rectangle."""
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -42,7 +42,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Get/set x coordinate of Rectangle."""
+        """Get/set the x coordinate of the Rectangle."""
         return self.__x
 
     @x.setter
@@ -55,7 +55,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Get/set y coordinate of Rectangle."""
+        """Get/set the y coordinate of the Rectangle."""
         return self.__y
 
     @y.setter
@@ -67,56 +67,35 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """Return the area of the Rectangle instance."""
+        """Return the area of the Rectangle."""
         return self.width * self.height
 
     def display(self):
-        """Print stdout Rectangle instance using '#' taking care of x and y."""
-        for _ in range(self.y):
-            print()
+        """Print the Rectangle using the # character taking care of x and y."""
+        print("\n" * self.y, end="")
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
 
     def __str__(self):
-        """Return representation string [Rectangle] (<id>) <x>/<y> - <width>/<height>."""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        """Return the print() and str() representation of the Rectangle."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
+        )
 
     def update(self, *args, **kwargs):
-        """Assign positional/keyword arguments to attributes."""
-        attrs = ["id", "width", "height", "x", "y"]
+        """Update the Rectangle attributes."""
         if args and len(args) != 0:
+            attrs = ["id", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
-                if i == 0:
-                    if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = arg
-                elif i == 1:
-                    self.width = arg
-                elif i == 2:
-                    self.height = arg
-                elif i == 3:
-                    self.x = arg
-                elif i == 4:
-                    self.y = arg
-        elif kwargs and len(kwargs) != 0:
+                if i < len(attrs):
+                    setattr(self, attrs[i], arg)
+        elif kwargs:
             for key, value in kwargs.items():
-                if key == "id":
-                    if value is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = value
-                elif key == "width":
-                    self.width = value
-                elif key == "height":
-                    self.height = value
-                elif key == "x":
-                    self.x = value
-                elif key == "y":
-                    self.y = value
+                if hasattr(self, key):
+                    setattr(self, key, value)
 
     def to_dictionary(self):
-        """Return dictionary representation of a Rectangle."""
+        """Return the dictionary representation of a Rectangle."""
         return {
             "id": self.id,
             "width": self.width,
