@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Lists all State objects and corresponding City objects from hbtn_0e_101_usa."""
+"""Lists all State objects and
+corresponding City objects from hbtn_0e_101_usa."""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -20,7 +21,8 @@ if __name__ == "__main__":
 
     for state in states:
         print("{}: {}".format(state.id, state.name))
-        for city in sorted(state.cities, key=lambda c: c.id):
+        for city in sorted(state.cities,
+                key=lambda c: c.id):
             print("\t{}: {}".format(city.id, city.name))
 
     session.close()
